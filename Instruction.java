@@ -1,5 +1,5 @@
 package pl.edu.pw.fizyka.pojava.projekt6;
-
+//część Igi
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -17,7 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class Instruction extends JFrame{
 
@@ -29,8 +28,6 @@ public class Instruction extends JFrame{
 	JTextArea instText;
 	JScrollPane scroll;
 	JTextArea textArea;
-	String text = resourceBundle.getString("text.inst");
-	
 	String title = resourceBundle.getString("classnameInst");
 	static Color colorComponent=new Color(58, 59, 61);
 	static Color colorText=new Color(12, 196, 166);
@@ -38,11 +35,13 @@ public class Instruction extends JFrame{
 	static Color colorDark=new Color(9,61,61);
 	static GradientPaint colorBG=new GradientPaint(0,400,colorLight,1200,400,colorDark);
 	
+
 	
 	public Instruction() {
 		this.setTitle(resourceBundle.getString("classnameInst"));
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setSize(350,500);
+        this.setResizable(false);
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null); //centrowanie 
         
@@ -73,7 +72,8 @@ public class Instruction extends JFrame{
 				englishButton.setText(resourceBundle.getString("eng.lang"));
 				polishButton.setText(resourceBundle.getString("pol.lang"));
 				setTitle(resourceBundle.getString("classnameInst"));
-				textArea.setText(resourceBundle.getString("text.inst"));
+				textArea.setText(resourceBundle.getString("inst"));
+
 				
 			}
         	
@@ -91,7 +91,7 @@ public class Instruction extends JFrame{
 				englishButton.setText(resourceBundle.getString("eng.lang"));
 				polishButton.setText(resourceBundle.getString("pol.lang"));
 				setTitle(resourceBundle.getString("classnameInst"));
-				textArea.setText(resourceBundle.getString("text.inst"));
+				textArea.setText(resourceBundle.getString("inst"));
 			}
         	
         });
@@ -104,20 +104,16 @@ public class Instruction extends JFrame{
 //--center----------------------------------------------------------------        
         centerPanel = new JPanel();
         centerPanel.setBackground(Color.white); 
+        centerPanel.setLayout(new BorderLayout());
         
-        textArea = new JTextArea(" ");
+        textArea = new JTextArea(resourceBundle.getString("inst"));
         textArea.setEditable(false);
-        textArea.setText(resourceBundle.getString("text.inst"));
         scroll = new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
         this.getContentPane().add(scroll);
         centerPanel.add(scroll, BorderLayout.CENTER);
         this.add(centerPanel,BorderLayout.CENTER);
 	}
 
-/*	public static void main(String[] args) {
-		Instruction frame = new Instruction();
-		frame.setVisible(true);
 
-	}*/
 
 }
